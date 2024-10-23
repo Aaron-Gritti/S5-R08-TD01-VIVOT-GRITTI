@@ -1,0 +1,41 @@
+﻿<Window x:Class="TD01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TD01"
+        mc:Ignorable="d"
+        Title="TD01 - global directory" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Global directory :" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding People}" SelectedItem="{Binding CurrentPerson}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Name}" FontWeight="Bold" Margin="0,0,10,0"></Label>
+                            <Label Content="(" FontFamily="Wingdings" HorizontalAlignment="Right"/>
+                            <Label Content="{Binding Phone}" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Add" Padding="10" FontSize="24" Width="140" Click="AddPerson" />
+            <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Remove" Padding="10" FontSize="24" Width="140" Click="RemovePerson" />
+        </Grid>
+    </Grid>
+</Window>
