@@ -8,7 +8,7 @@ namespace TestLogic
         public void TestCreate()
         {
             Person p = new Person();
-            Assert.Equal(0, p.Idpeople);
+            Assert.Equal(0, p.Id);
             Assert.Equal("", p.Name);
             Assert.Equal("", p.Phone);
         }
